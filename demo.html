@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Sample Burn Down Chart</title>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="http://www.conceptuel.co.uk/burnDown/js/excanvas.min.js"></script><![endif]-->	
+	<script language="javascript" type="text/javascript" src="http://www.conceptuel.co.uk/burnDown/js/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.conceptuel.co.uk/burnDown/js/jquery.flot.min.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.conceptuel.co.uk/burnDown/js/jquery.flot.time.min.js"></script>	
+	<script type="text/javascript">
+
+	$(function() {
+	
+            var day0 = [
+                [(new Date("2013/11/04 00:00:00")).getTime(),56.09],
+                [(new Date("2013/11/04 23:59:59")).getTime(),49.28]
+            ];
+            var day1 = [
+                [(new Date("2013/11/05 00:00:00")).getTime(),49.28],
+                [(new Date("2013/11/05 23:59:59")).getTime(),46.33]
+            ];
+            var day2 = [
+                [(new Date("2013/11/06 00:00:00")).getTime(),46.33],
+                [(new Date("2013/11/06 23:59:59")).getTime(),36.55]
+            ];
+            var ideal = [
+                [(new Date("2013/11/04 00:00:00")).getTime(),56.09],
+                [(new Date("2013/11/15 23:59:59")).getTime(),0]
+            ];
+
+    		
+		var options = {
+			xaxis: {
+				mode: "time",
+				minTickSize: [1, "day"]
+			},
+			yaxis: {
+				min: 0
+			}
+		}
+
+		$.plot("#placeholder", [{
+			label: 'Actual Burn Down',
+			data: day0,
+			lines: { show: true },
+			color: 'blue'
+		}, {
+			data: day1,
+			lines: { show: true },
+			color: 'blue'
+		}, {
+			data: day2,
+			lines: { show: true },
+			color: 'blue'
+		},  {
+			label: 'Ideal Burn Down',
+			data: ideal,
+			lines: { show: true },
+			color: 'green'
+		}, ] , options);
+
+	});
+
+	</script>
+	<style>
+* {	padding: 0; margin: 0; vertical-align: top; }
+
+body {
+	font: 18px/1.5em "proxima-nova", Helvetica, Arial, sans-serif;
+}
+
+h2 {
+	margin-top: 15px;
+	font: normal 32px "omnes-pro", Helvetica, Arial, sans-serif;
+}
+
+#header {
+	position: relative;
+	width: 1200px;
+	margin: auto;
+}
+
+#header h2 {
+	margin-left: 10px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 42px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+#content {
+	width: 1180px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.graph-container {
+	box-sizing: border-box;
+	width: 1150px;
+	height: 650px;
+	padding: 20px 15px 15px 15px;
+	margin: 15px auto 30px auto;
+	border: 1px solid #ddd;
+	background: #fff;
+	background: linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.graph-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+
+	</style>	
+</head>
+<body>
+	<div id="header">
+		<h2>Sample Burn Down Chart</h2>
+	</div>
+	<div id="content">
+		<div class="graph-container">
+			<div id="placeholder" class="graph-placeholder"></div>
+		</div>
+	</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.conceptuel.co.uk/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "8"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->	
+</body>
+</html>
